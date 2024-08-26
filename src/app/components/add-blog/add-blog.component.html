@@ -1,0 +1,21 @@
+<div class="container d-flex justify-content-center">
+    <h2><b>Add your Blog here!</b></h2>
+</div>
+<form class="m-5" [formGroup]="blogForm" (ngSubmit)="onSubmitBlog()">
+    <div class="mb-3">
+      <label for="title" class="form-label">Title</label>
+      <input type="email" class="form-control" formControlName="title" id="title" [ngClass]="{ 'is-invalid': submitted }">
+      <div *ngIf="submitted" class="invalid-feedback">
+        Title is required
+      </div>
+    </div>
+    <div class="mb-3">
+      <label for="content" class="form-label">Content</label>
+      <input type="textarea" style="height: 150px;" class="form-control" id="content" formControlName="content">
+    </div>
+    <div class="mb-3">
+      <label for="author" class="form-label">Author</label>
+      <input type="text" class="form-control" id="author" formControlName="author">
+    </div>
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
